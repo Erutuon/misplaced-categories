@@ -1,0 +1,15 @@
+[package]
+name = "misplaced-wiktionary-categories"
+version = "0.1.0"
+authors = ["Erutuon <5840197+Erutuon@users.noreply.github.com>"]
+edition = "2018"
+
+[dependencies]
+anyhow = "1.0.40"
+bincode = "1.3.3"
+cbor-mediawiki-dump = { git = "https://github.com/Erutuon/cbor-mediawiki-dump", rev = "092c74207cb495479bca7666d021aab5e3fc59e6" }
+parse-mediawiki-sql = { features = ["utils", "serialization"] }
+pico-args = "0.4"
+rlua = "0.17.0"
+smartstring = { version = "0.2", features = ["serde"] }
+thiserror = "1.0.25"
