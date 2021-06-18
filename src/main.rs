@@ -161,6 +161,7 @@ fn print_reconstruction_categories<'a>(
     pages: impl IntoIterator<Item = Page<'a>>,
     categories: impl IntoIterator<Item = CategoryLink>,
 ) -> anyhow::Result<()> {
+    const RECONSTRUCTION_NAMESPACE: PageNamespace = PageNamespace(118);
     let pages = pages
         .into_iter()
         .filter_map(
@@ -170,7 +171,7 @@ fn print_reconstruction_categories<'a>(
                  title,
                  ..
              }: Page| {
-                if namespace == PageNamespace(118) {
+                if namespace == RECONSTRUCTION_NAMESPACE {
                     if let Some(lang) = title.0.split_once('/').map(|(lang, _)| lang) {
                         return Some((id, (String::from(lang), namespace, title)));
                     }
